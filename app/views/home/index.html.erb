@@ -1,6 +1,8 @@
 <h2>Welcome <%= current_user.user_name %></h2>
-
-
-<%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %>
+<hr />
+<h5>If this is your first time visiting, please Edit Profile.</h5>
+<br />
+<%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %> |
+<%= link_to 'Search', profile_index_path %> |
 <br />
 <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
