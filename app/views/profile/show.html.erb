@@ -1,0 +1,21 @@
+<div class="row">	
+	<div class="col s10 offset-s1">
+		<h1>Hello <%= current_user.user_name %></h1>
+		<hr />
+		<h4>Bio:</h4>
+		<p style="font-size: 24px"><%= @profile.bio %></p>
+		<br />
+		<h4>Age:</h4>
+		<p style="font-size: 24px"><%= @profile.age %></p>
+		<br />
+		<h4>Gender:</h4>
+		<p style="font-size: 24px"><%= @profile.gender %></p>
+		<br />
+		<h4>City:</h4>
+		<p style="font-size: 24px"><%= @profile.city %></p>
+		<br />
+		<%= link_to 'Go Back To User Page' %> |
+		<%= link_to 'Search' %> |
+		<%= link_to 'Go Back To Edit Profile' %>
+	</div>
+</div>
