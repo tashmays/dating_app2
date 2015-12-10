@@ -1,4 +1,4 @@
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   def index
     @gender_matches = Profile.where.not(gender: current_user.profile.gender)
   end
@@ -13,8 +13,9 @@ class ProfileController < ApplicationController
   end
 
   def create
-  	if Profile.create(profile_params)
-  		redirect_to profile_path
+    @profile = Profile.new(profile_params)
+  	if @profile.save
+  		redirect_to profile_path(@profile)
   	else
   		render :new
   	end
@@ -32,6 +33,15 @@ class ProfileController < ApplicationController
   	else
   		render :edit
   	end
+  end
+
+  def destroy
+    profile = Profile.find(params[:id])
+    if profile.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private

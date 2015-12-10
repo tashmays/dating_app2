@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   validates_presence_of :user_name
   validates_uniqueness_of :user_name
