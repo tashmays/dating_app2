@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
   def index
-  	@profiles = Profile.all
+    @gender_matches = Profile.where.not(gender: current_user.profile.gender)
   end
 
   def show

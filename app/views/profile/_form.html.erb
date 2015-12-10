@@ -9,12 +9,15 @@
     	<br />
     	<div class = "field">
     		<%= f.label :age %>:
-    		<%= f.select :age, (18..125) %>
+    		<%= f.number_field :age %>
     	</div>
     	<br />
     	<div class = "field">
     		<%= f.label :gender %>:
-    		<%= f.select :gender, ['Male','Female'] %>
+    		<%= f.radio_button :gender, 'Male' %>
+        <%= f.label :gender, 'Male', value:'Male' %>
+    		<%= f.radio_button :gender, 'Female' %>
+        <%= f.label :gender, 'Female', value:'Female' %>
     	</div>
     	<br />
     	<div class = "field">

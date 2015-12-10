@@ -1,7 +1,7 @@
 <h1>Browse Profiles</h1>
 <hr />
 <div class="row">
-<% @profiles.each do |profile| %>
+<% @gender_matches.each do |profile| %>
   <div class="col s4 offset-s1">
       <div class="card blue-grey">
         <p>Username: <%= "#{User.find(profile.user_id).user_name}" %></p>

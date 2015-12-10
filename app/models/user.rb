@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
   has_one :profile
 
   validates_presence_of :user_name
-  validates_uniqueness_of :user_name 
+  validates_uniqueness_of :user_name
 
   after_create :init_profile
+
+  include Gravtastic
+  gravtastic
 
   def init_profile
     Profile.create(user_id: self.id)
