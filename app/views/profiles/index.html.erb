@@ -11,6 +11,11 @@
         <p>City: <%= profile.city %></p>
         <div class="card-action">
           <%= link_to "See #{User.find(profile.user_id).user_name}", profile_path(profile.user_id)%>
+          <% if current_user.profile.likes?(Profile.find(profile)) %>
+            <%= link_to "Un-Like ", toggle_like_path(profile), method: :post %>  
+          <% else %>
+            <%= link_to "Like #{User.find(profile.user_id).user_name}", toggle_like_path(profile), method: :post %>  
+          <%end %>     
         </div>
       </div>
   </div>

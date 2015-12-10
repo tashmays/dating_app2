@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
 
   def show
   	#@user = User.find(params[:id])
-  	@profile = Profile.find(params[:id])
+  	@profile = Profile.find_by(user_id: params[:id])
   end
 
 	def new
@@ -42,6 +42,13 @@ class ProfilesController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+  def toggle_like
+  
+    current_user.profile.toggle_like!( Profile.find(params[:profile_id]) )
+    @gender_matches = Profile.where.not(gender: current_user.profile.gender)
+   # binding.pry
+    render :index
   end
 
   private
