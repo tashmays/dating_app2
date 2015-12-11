@@ -7,6 +7,8 @@
   <%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %> |
   <%= link_to 'Search', profiles_path %> |
   <%= link_to 'Profile', profile_path(current_user)%>
+  <%= link_to '*people you have licked*', liked_people_path%>
+  <%= link_to '*people that have licked you*', liked_user_path%>
   <br />
   <!-- take from views/devise/registrations/edit -->
 <%= button_to "Cancel my account", registration_path(current_user), data:

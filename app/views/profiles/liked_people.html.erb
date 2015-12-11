@@ -1,0 +1,30 @@
+<h1>People you liked</h1>
+<hr/>
+
+<% if @liked_people.any? %>
+<div class="row">
+<% @liked_people.each do |profile| %>
+  <div class="col s4 offset-s1">
+      <div class="card blue-grey">
+        <p>Username: <%= "#{User.find(profile.user_id).user_name}" %></p>
+        <p>Bio: <%= profile.bio %></p>
+        <p>Age: <%= profile.age %></p>
+        <p>Gender: <%= profile.gender %></p>
+        <p>City: <%= profile.city %></p>
+        <div class="card-action">
+          <%= link_to "See #{User.find(profile.user_id).user_name}", profile_path(profile.user_id)%>
+          <% if current_user.profile.likes?(Profile.find(profile)) %>
+            <%= link_to "Un-Like ", toggle_like_path(profile), method: :post %>  
+          <% else %>
+            <%= link_to "Like #{User.find(profile.user_id).user_name}", toggle_like_path(profile), method: :post %>  
+          <%end %>     
+        </div>
+      </div>
+  </div>
+<% end %>
+</div>
+
+<% else %>
+<p><%= "You don't like anyone :(" %></p>
+<%end%>
+<%= link_to 'Home Page', root_path %>

@@ -12,4 +12,11 @@ class Profile < ActiveRecord::Base
   #user.likes?(movie)
   #movie.liked_by?(user)
   #movie.likers(User)
+  def self.liked_people(current_user)
+  	Profile.all.select{ |p| current_user.profile.likes?(p)}
+  	
+  end
+   def self.liked_user(current_user)
+  	Profile.all.select{ |p| p.likes?(current_user.profile)}
+  end
 end

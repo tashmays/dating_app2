@@ -51,6 +51,17 @@ class ProfilesController < ApplicationController
     render :index
   end
 
+  def liked_people
+   # binding.pry
+    @liked_people = Profile.liked_people(current_user)
+    render :liked_people
+  end
+  def liked_user
+     @liked_user = Profile.liked_user(current_user)
+     render :liked_user
+  end
+
+
   private
 
   def profile_params

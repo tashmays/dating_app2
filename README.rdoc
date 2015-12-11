@@ -1,28 +1,16 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<h2>Welcome <%= current_user.user_name %></h2>
+<%= image_tag current_user.gravatar_url %>
+<hr />
+<h5>Search profiles to see other users.</h5>
+<h5>If this is your first time visiting, please Edit Profile.</h5>
+<br />
+  <%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %> |
+  <%= link_to 'Search', profiles_path %> |
+  <%= link_to 'Profile', profile_path(current_user)%>
+   <%= link_to 'peps you like....', profile_path(current_user)%>
+  <br />
+  <!-- take from views/devise/registrations/edit -->
+<%= button_to "Cancel my account", registration_path(current_user), data:
+  { confirm: "Are you sure?" }, method: :delete %>
+<br />
+<%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
