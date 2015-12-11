@@ -1,22 +1,37 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="row">
 	<div class="col s10 offset-s1">
-    <h1>Hello <%= "#{User.find(@profile.user_id).user_name}" %></h1>
-    <%= image_tag User.find(@profile.user_id).gravatar_url %>
-		<hr />
-		<h4>Bio:</h4>
-		<p style="font-size: 24px"><%= @profile.bio %></p>
-		<br />
-		<h4>Age:</h4>
-		<p style="font-size: 24px"><%= @profile.age %></p>
-		<br />
-		<h4>Gender:</h4>
-		<p style="font-size: 24px"><%= @profile.gender %></p>
-		<br />
-		<h4>City:</h4>
-		<p style="font-size: 24px"><%= @profile.city %></p>
-		<br />
-		<%= link_to 'Home Page', root_path %> |
-    <%= link_to 'Search', profiles_path %> |
-		<%= link_to 'Edit Profile', edit_profile_path(@profile) %>
+		<div id='head'>
+	    <h1>Hello <%= "#{User.find(@profile.user_id).user_name}" %></h1>
+	    <%= image_tag User.find(@profile.user_id).gravatar_url %>
+		</div>
+		<div class="text-align center">
+			<h4>Bio:</h4>
+			<p style="font-size: 24px"><%= @profile.bio %></p>
+			<br />
+		</div>
+		<div class="col s4 text-align center">
+			<h4>Age:</h4>
+			<p style="font-size: 24px"><%= @profile.age %></p>
+		</div>
+		<div class="col s4 text-align center">
+			<h4>Gender:</h4>
+			<p style="font-size: 24px"><%= @profile.gender %></p>
+		</div>
+		<div class="col s4 text-align center">
+			<h4>City:</h4>
+			<p style="font-size: 24px"><%= @profile.city %></p>
+		</div>
+		<div id='foot'>
+			<%= link_to edit_profile_path(current_user.profile) do %>
+				<i class="material-icons large">settings_applications</i>
+				<% end %>
+		  <%= link_to root_path(current_user) do %>
+		  	<i class="material-icons large">view_day</i>
+				<% end %>
+			<%= link_to profiles_path do %>
+			  <i class="material-icons large">pageview</i>
+				<% end %>
+		</div>
 	</div>
 </div>

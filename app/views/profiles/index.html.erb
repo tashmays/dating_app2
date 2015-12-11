@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <h1>Browse Profiles</h1>
 <hr />
 <div class="row">
@@ -15,11 +16,20 @@
             <%= link_to "Un-Like ", toggle_like_path(profile), method: :post %>  
           <% else %>
             <%= link_to "Like #{User.find(profile.user_id).user_name}", toggle_like_path(profile), method: :post %>  
-          <%end %>     
+          <%end %> 
+        <% end %>    
         </div>
       </div>
   </div>
-<% end %>
+  <div id='foot'>
+    <%= link_to edit_profile_path(current_user) do %>
+      <i class="material-icons large">settings_applications</i>
+      <% end %>
+    <%= link_to root_path(current_user) do %>
+      <i class="material-icons large">view_day</i>
+      <% end %>
+    <%= link_to profile_path(current_user) do %>
+        <i class="material-icons large">person_pin</i>
+        <% end %>
+    </div>
 </div>
-
-<%= link_to 'Home Page', root_path %>

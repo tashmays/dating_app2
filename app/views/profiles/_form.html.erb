@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col s10 offset-s1">
+    <br />
+    <br />
+<div class="col s10 offset-s1" id='border'>
     <%= form_for @profile do |f| %>
     	<br />
     	<div class = "field">
@@ -25,7 +27,9 @@
     		<%= f.text_field :city %>
     	</div>
     	<br />
-    <%= f.submit %>
+    <div class="btn-large waves-effect waves-light">
+        <%= f.submit %>
+    </div>
     <% end %>
   </div>
 </div>

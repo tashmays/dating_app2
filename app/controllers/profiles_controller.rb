@@ -61,7 +61,6 @@ class ProfilesController < ApplicationController
      render :liked_user
   end
 
-
   private
 
   def profile_params

@@ -1,17 +1,46 @@
-<h2>Welcome <%= current_user.user_name %></h2>
-<%= image_tag current_user.gravatar_url %>
-<hr />
-<h5>Search profiles to see other users.</h5>
-<h5>If this is your first time visiting, please Edit Profile.</h5>
-<br />
-  <%= link_to 'Edit Profile', edit_profile_path(current_user.profile) %> |
-  <%= link_to 'Search', profiles_path %> |
-  <%= link_to 'Profile', profile_path(current_user)%>
-  <%= link_to '*people you have licked*', liked_people_path%>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class='row'>
+  <div class='col s10 offset-s1'>
+	 	<div id='cancel'>	
+			<%= link_to "Cancel my account", profile_path(current_user), method: :delete, class: "btn-large waves-effect waves-light" %>
+			<br />
+			<br />
+			<div class="waves-effect waves-light btn-large"><%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
+			</div>
+		</div>
+	  <div id='head'>
+			<h2>Welcome <%= current_user.user_name %></h2>
+				<%= image_tag current_user.gravatar_url %>
+		</div>
+		<br />
+		<div class="text-align center">
+		<h5>Search profiles to see other users.</h5>
+		<h5>If this is your first time visiting, please <%= link_to "Edit Profile", edit_profile_path(current_user) %>.</h5>
+		</div>
+		<br />
+	<%= link_to '*people you have licked*', liked_people_path%>
   <%= link_to '*people that have licked you*', liked_user_path%>
   <br />
-  <!-- take from views/devise/registrations/edit -->
-<%= button_to "Cancel my account", registration_path(current_user), data:
-  { confirm: "Are you sure?" }, method: :delete %>
-<br />
-<%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
+		<div id='foot-home'>
+			<%= link_to edit_profile_path(current_user) do %>
+				<i class="material-icons large">settings_applications</i>
+				<% end %>
+		  <%= link_to profile_path(current_user) do %>
+		  	<i class="material-icons large">person_pin</i>
+				<% end %>
+			<%= link_to profiles_path do %>
+			  <i class="material-icons large">pageview</i>
+				<% end %>
+		</div>
+		  <br />
+		  <!-- take from views/devise/registrations/edit -->
+		
+		<br />
+		
+	</div>
+</div>
+
+
+
+
+>>>>>>> Arialle Commit

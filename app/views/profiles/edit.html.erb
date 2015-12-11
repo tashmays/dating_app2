@@ -1,3 +1,21 @@
-<h1>Edit Profile</h1>
-<hr />
- <%= render(partial: 'form') %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="row">
+	<div class='col s10 offset-s1'>
+		<div id='head'>
+			<h1>Edit Profile</h1>
+		</div>
+		 <%= render(partial: 'form') %>
+		 <br />
+	<div id='foot'>
+			<%= link_to root_path(current_user) do %>
+		  	<i class="material-icons large">view_day</i>
+				<% end %>
+		  <%= link_to profile_path(current_user) do %>
+		  	<i class="material-icons large">person_pin</i>
+				<% end %>
+			<%= link_to profiles_path do %>
+			  <i class="material-icons large">pageview</i>
+				<% end %>
+		</div>
+	</div>
+</div>
